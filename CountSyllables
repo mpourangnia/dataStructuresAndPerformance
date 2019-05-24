@@ -1,0 +1,44 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class CountSyllables {
+
+    public static void main(String[] args) {
+
+        System.out.println("number of syllables is " + countNumberOfSyllables("continuous" ));
+    }
+
+    private static int countNumberOfSyllables(String word) {
+
+
+        int numSyllables = 0;
+        boolean preVowel = false;
+        String vowels = "aeiuyo";
+
+
+        char [] letters = word.toCharArray();
+
+        for (int i = 0; i < letters.length; i++)  {
+
+            if ( i == letters.length-1 && letters[i] == 'e'
+                    && !preVowel && numSyllables > 0) {
+                numSyllables--;
+            }
+
+            if (!preVowel && vowels.indexOf(letters[i]) >= 0) {
+                numSyllables++;
+                preVowel = true;
+            }
+
+            else if (vowels.indexOf(letters[i]) < 0){
+                preVowel = false;
+
+            }
+
+        }
+
+        return numSyllables;
+
+    }
+
+}
