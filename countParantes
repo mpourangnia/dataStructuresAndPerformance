@@ -1,0 +1,29 @@
+public class countParantes {
+
+    public static void main(String[] args) {
+
+
+        String s = "()()(())()(())()";
+        System.out.println("balanced = " + isBalanced(s));
+
+
+    }
+
+    private static boolean isBalanced(String s) {
+
+        char[] pArray = s.toCharArray();
+        int count = 0;
+        for (int i = 0; i < pArray.length; i++ ) {
+            if (String.valueOf(pArray[i]).equals("(")) {
+                count++;
+            }
+            if (String.valueOf(pArray[i]).equals(")")) {
+                count--;
+            }
+        }
+        if (count == 0) {
+            return true;
+        }
+        return false;
+    }
+}
